@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from servicios.models import Servicio
+from blogs.models import Blog
 
 def home(request):
     
@@ -14,8 +15,8 @@ def tienda(request):
     return render(request,"ProyectowebApp/tienda.html")
 
 def blog(request):
-    
-    return render(request,"ProyectowebApp/blog.html")
+    blogs=Blog.objects.all()
+    return render(request,"ProyectowebApp/blog.html", {"blogs": blogs})
 
 def contacto(request):
     

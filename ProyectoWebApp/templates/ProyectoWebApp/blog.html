@@ -1,7 +1,14 @@
-{% extends "ProyectoWebApp/base.html"%}+
+{% extends "ProyectoWebApp/base.html"%}
 
 {% load static%}
 
 {% block content%}
 
+    {% for blog in blogs %}
+<div> 
+<p>        <h2 style="color: rgb(240, 111, 229);">{{blog.titulo}} </h2>       </p> 
+            <p style="color: rgb(240, 111, 229);"> {{ blog.contenido}}                    </p>
+            <p> <img src="{{blog.imagen.url}}" alt=""  height="100" ></p>
+</div>
+    {% endfor %}
 {% endblock%}

@@ -1,6 +1,6 @@
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(231, 158, 202, 0.65), rgba(255, 255, 255, 0.65)), url("../img/logo.png");
+  background: linear-gradient(rgba(231, 158, 202, 0.65), rgba(255, 255, 255, 0.65)), url("../img/background_image.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
