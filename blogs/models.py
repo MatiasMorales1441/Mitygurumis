@@ -5,7 +5,7 @@ from django.utils.html import format_html
 class Blog(models.Model):
     titulo = models.CharField(max_length=50, verbose_name="titulo")
     contenido =models.CharField(max_length=600, verbose_name='contenido')
-    imagen = models.ImageField(upload_to = 'blogs')
+    imagen = models.ImageField(upload_to = 'blogs',null=True,blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
   

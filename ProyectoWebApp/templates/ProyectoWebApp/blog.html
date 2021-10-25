@@ -5,10 +5,50 @@
 {% block content%}
 
     {% for blog in blogs %}
-<div> 
-<p>        <h2 style="color: rgb(240, 111, 229);">{{blog.titulo}} </h2>       </p> 
-            <p style="color: rgb(240, 111, 229);"> {{ blog.contenido}}                    </p>
-            <p> <img src="{{blog.imagen.url}}" alt=""  height="100" ></p>
+
+
+<div>             
+    <section>
+<p>       
+             <h2 style="color: #000000; background-color: rgb(245, 228, 245);
+             margin: 1rem;
+             padding: 1rem;
+             text-align: center;
+             font-weight: 500;
+             font-size: 40"
+             >{{blog.titulo}} </h2>  
+</p> 
+</section>
+
+<section>
+
+            <p style="color: rgb(155, 53, 53); 
+                    position: relative;
+                    width: 759px;
+                    height: 200px;
+                    left: 46px;
+                    top: 154px;
+
+                    font-family: serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 30px;
+                    line-height: 35px;"> {{ blog.contenido}} </p>
+</section>
+<section>
+            
+            <p> <img src="{{blog.imagen.url}}" alt="" style="   
+
+                position: relative;
+                    height: 261px;
+                    height: 394px;
+                    left: 1250px;
+                    top: -150px;
+                "></p>
+</section>
+
 </div>
+
+
     {% endfor %}
 {% endblock%}
