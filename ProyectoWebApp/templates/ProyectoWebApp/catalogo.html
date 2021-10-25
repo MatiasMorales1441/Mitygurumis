@@ -6,9 +6,45 @@
 
     {% for servicio in servicios%}
 <div> 
-<p>        <h2 style="color: rgb(240, 111, 229);">{{servicio.titulo}} </h2>       </p> 
-            <p style="color: rgb(240, 111, 229);"> {{ servicio.contenido}}                    </p>
-            <p> <img src="{{servicio.imagen.url}}" alt=""  height="100"></p>
+    <p>       
+        <h2 style="color: #000000; background-color: rgb(245, 228, 245);
+        margin: 1rem;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 500;
+        font-size: 40"
+        >{{servicio.titulo}} </h2>  
+</p> 
+
+<section>
+
+    <p style="color: rgb(155, 53, 53); 
+            position: relative;
+            width: 759px;
+            height: 200px;
+            left: 900px;
+            top: 154px;
+
+            font-family: serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 35px;"> {{ servicio.contenido}} </p>
+</section>
+
+
+
+<section>
+            
+    <p> <img src="{{servicio.imagen.url}}" alt="" style="   
+
+        position: relative;
+            height: 261px;
+            height: 394px;
+            left: 300px;
+            top: -150px;">
+            </p>
+</section>
 </div>
     {% endfor %}
 {% endblock%}
