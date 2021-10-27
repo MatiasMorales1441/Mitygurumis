@@ -12,6 +12,9 @@ urlpatterns = [
     path('blog/', views.blog, name="blog"),
   
     path('contacto/', views.contacto, name="contacto"),
+
+    path('webpay-plus-create',views.webpay_plus_create),
+    path('commit-pay/',views.commitpay),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

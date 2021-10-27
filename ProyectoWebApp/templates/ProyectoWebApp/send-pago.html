@@ -1,0 +1,11 @@
+<html>
+<head>
+    <title>Post-Pago</title>
+</head>
+    <body onload='document.my_form.submit()'>
+        <form action="{{response.url}}" name="my_form" method="POST">
+            <input type="hidden" name="token_ws" value="{{response.token}}">
+            <input type="hidden" name="amount" value="{{amount}}">
+        </form>
+    </body>
+</html>
