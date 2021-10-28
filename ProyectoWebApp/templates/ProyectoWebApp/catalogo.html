@@ -45,7 +45,30 @@
             font-weight: normal;
             font-size: 30px;
             line-height: 35px;"> {{ servicio.nombre}} </p>
+            
 </section>
+<section>
+    <p style="color: rgb(155, 53, 53); 
+            position: relative;
+            width: 759px;
+            height: 200px;
+            left: 900px;
+            top: 154px;
+
+            font-family: serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 35px;"></p>
+
+            <form name="pay" action="/webpay-plus-create" method="POST">{% csrf_token %}
+        
+                <td></td>
+                <td><strong>Total</strong></td>
+                <td><strong>{{servicio.precio}}</strong><input name="precio" hidden value="{{servicio.precio}}" /></td>
+                <td><button>PAY</button></td> 
+</section>
+
 <section>
 
     <p style="color: rgb(155, 53, 53); 
