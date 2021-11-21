@@ -5,39 +5,41 @@
 {% block content%}
 
     {% for servicio in servicios%}
-<div> 
-    <p> <h2 class="catalogo-servicio-titulo">{{servicio.titulo}} </h2>  
-        
-
-<section>
-<div class="catalogo-servicio-descripcion">DESCRIPCION </div>
-    <p class="catalogo-servicio-descripcion-info"> {{ servicio.contenido}} </p>
-
-    <p  class="catalogo-servicio-nombre-info"> {{ servicio.nombre}} </p>
-            
-</section>
-<section>
-    <p class="catalogo-servicio-cuadro"/>
-
-            <form name="pay" action="/webpay-plus-create" method="POST" class="catalogo-servicio-boton-Webpay">{% csrf_token %}
+    <h2 class="catalogo-servicio-titulo">{{servicio.titulo}} </h2>  
+    <div class="catalogo-producto"> 
+        <div class="catalogo-producto-imagen">
+            <section>
                 
-                <td><strong class="catalogo-servicio-precio">Precio:</strong></td>
-                <td><strong class="catalogo-servicio-precio-info">{{servicio.precio}}</strong><input name="precio" hidden value="{{servicio.precio}}" /></td>
-                <td><button class="catalogo-servicio-boton-Webpay-comprar">COMPRAR</button></td> 
+                <p> <img src="{{servicio.imagen.url}}" alt="" class="catalogo-servicio-imagen"></p>
+            </section> 
+        </div>
 
+        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">NOMBRE </div>
+                <p  class="catalogo-servicio-info"> {{ servicio.nombre}} </p>
+            </div>
 
-</section>
-<div class="catalogo-servicio-animeopelicula">ANIME O PELICULA </div>
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">ANIME O PELICULA </div>
+                <p class="catalogo-servicio-info"> {{ servicio.procedencia}} </p>
+            </div>
 
-<section>
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">DESCRIPCION </div>
+                <p class="catalogo-servicio-info"> {{ servicio.contenido}} </p>
+            </div>
 
-    <p class="catalogo-servicio-animeopelicula-info"> {{ servicio.procedencia}} </p>
-</section>
-
-<section>
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">Precio:</div>
+                <p class="catalogo-servicio-info">{{servicio.precio}} </p>
+            </div>
             
-    <p> <img src="{{servicio.imagen.url}}" alt="" class="catalogo-servicio-imagen"></p>
-</section>
-</div>
+            <input name="precio" hidden value="{{servicio.precio}}" />
+            <form name="pay" action="/webpay-plus-create" method="POST">{% csrf_token %}
+            <button class="catalogo-servicio-boton-webpay">COMPRAR</button>
+        </div>
+
+    </div>
     {% endfor %}
 {% endblock%}
