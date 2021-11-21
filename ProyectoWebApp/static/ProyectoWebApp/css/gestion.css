@@ -279,3 +279,163 @@ ul.errorlist{
   font-style: italic;
   color: red;
 }
+
+/*  ------  CATALOGO  ------  */
+
+.catalogo-servicio-titulo{
+  color: #000000; background-color: rgb(243, 171, 205);
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 40;
+  display: block;
+  font-family: 'Raleway';
+  line-height: 1.2;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  box-sizing: border-box;
+}    
+
+.catalogo-servicio-descripcion{
+  color:rgb(0, 0, 0);
+  position: relative;
+  font-size: 30;
+  left: 900px;
+  top: 330px;
+  display: inline-block;
+}
+
+.catalogo-servicio-descripcion-info{
+  color: rgb(155, 53, 53); 
+  position: relative;
+  width: 759px;
+  height: 200px;
+  left: 900px;
+  top: 330px;
+  font: oblique bold 120% cursive;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.catalogo-servicio-nombre{
+  color:rgb(0, 0, 0);
+  position: relative;
+  font-size: 30;
+  left: 900px;
+  top: -200px;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.catalogo-servicio-nombre-info{
+  color: rgb(155, 53, 53); 
+  position: relative;
+  width: 759px;
+  height: 200px;
+  left: 900px;
+  top: -200px;
+  font: oblique bold 120% cursive;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.catalogo-servicio-animeopelicula{
+  color:rgb(0, 0, 0);
+  position: relative;
+  font-size: 30;
+  left: 900px;
+  top: -580px;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.catalogo-servicio-animeopelicula-info{
+  color: rgb(155, 53, 53); 
+  position: relative;
+  width: 759px;
+  height: 200px;
+  left: 900px;
+  top: -580px;
+  font: oblique bold 120% cursive;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.catalogo-servicio-cuadro{
+  color: rgb(155, 53, 53); 
+  position: relative;
+  width: 759px;
+  height: 200px;
+  left: 900px;
+  top: 154px;
+}
+
+.catalogo-servicio-boton-Webpay{
+  position: relative;
+  top: -100px;
+  left: 900px;
+  font-size: 20px;
+}
+
+.catalogo-servicio-precio{
+  font-weight: normal;
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  position: relative;
+  top: -100px;
+  left: 900px;
+}
+
+.catalogo-servicio-precio-info{
+  position:relative;
+  top: -50px;
+  left: 800px;
+  color: rgb(155, 53, 53);
+  font: oblique bold 120% cursive;
+  font-weight: normal;
+  font-size: 30px;
+}
+.catalogo-servicio-boton-Webpay-comprar{
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  left: 750px;
+}
+
+.catalogo-servicio-imagen{
+  position: relative;
+  height: 694px;
+  left: 200px;
+  top: -1000px;
+  border: 10px solid rgb(0, 0, 0);
+  margin: auto;
+  padding: 0px 0px;
+  
+}
