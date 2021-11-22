@@ -53,6 +53,9 @@ def index(request):
 
     return render(request,"ProyectowebApp/compra.html",{})
 
+###         PAGINAS DE LOS PRODUCTOS        ###
+def cerdito_producto(request):
+    return render(request,"ProyectowebApp/productos/cerdito.html")
  
 def send_user_mail(user):
     subject = 'Titulo del correo'

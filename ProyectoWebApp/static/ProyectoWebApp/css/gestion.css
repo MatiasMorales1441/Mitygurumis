@@ -382,4 +382,5 @@ ul.errorlist{
   text-align: center;
   text-decoration: none;
   touch-action: manipulation;
+  width: 100%;
 }
