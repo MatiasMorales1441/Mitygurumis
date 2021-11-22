@@ -14,11 +14,11 @@ urlpatterns = [
 
     path('catalogo/compra',views.index,name="compra"),
 
-    path('webpay-plus-create',views.webpay_plus_create),
-    path('commit-pay/',views.commitpay),
-
     path('catalogo/cerdito/', views.cerdito_producto),
 
+    path('webpay-plus-create',views.webpay_plus_create),
+    path('commit-pay/',views.commitpay),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

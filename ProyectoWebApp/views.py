@@ -79,7 +79,7 @@ def webpay_plus_create(request):
     print("Webpay Plus Transaction.create")
     buy_order = str(1)
     session_id = str(13)
-    amount = request.POST.get('precio')
+    amount = 1000
 
     return_url=request.build_absolute_uri(location='commit-pay/')
 

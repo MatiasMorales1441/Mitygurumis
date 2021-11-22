@@ -34,8 +34,14 @@
             </div>
             
             <a href="cerdito" class="catalogo-servicio-boton-webpay">COMPRAR</a>
+            
+
+            <form name="pay" action="/webpay-plus-create" method="POST">{% csrf_token %}
+        
+                <td><button>PAY</button></td> 
 
         </div>
 
+        
     </div>
 {% endblock%}
