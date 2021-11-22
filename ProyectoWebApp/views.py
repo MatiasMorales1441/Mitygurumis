@@ -43,6 +43,7 @@ def send_email(mail):
                                     settings.EMAIL_HOST_USER, #Remitente
                                     [mail]) #Destinatario
     email.attach_alternative(content, 'text/html')
+    email.attach_file('ProyectoWebApp/static/ProyectoWebApp/archivos/cerdito-gurumi.pdf')
     email.send()
 
 
@@ -56,22 +57,7 @@ def index(request):
 ###         PAGINAS DE LOS PRODUCTOS        ###
 def cerdito_producto(request):
     return render(request,"ProyectowebApp/productos/cerdito.html")
- 
-def send_user_mail(user):
-    subject = 'Titulo del correo'
-    template = get_template('templates/mi_template_correo.html')
 
-    content = template.render({
-        'user': user,
-    })
-
-    message = EmailMultiAlternatives(subject, #Titulo
-                                    '',
-                                    settings.EMAIL_HOST_USER, #Remitente
-                                    [user.email]) #Destinatario
-
-    message.attach_alternative(content, 'text/html')
-    message.send()
 
 
 def webpay_plus_create(request):
@@ -80,6 +66,8 @@ def webpay_plus_create(request):
     buy_order = str(1)
     session_id = str(13)
     amount = 1000
+
+    mail = request.POST.get('mail')
 
     return_url=request.build_absolute_uri(location='commit-pay/')
 
@@ -91,7 +79,7 @@ def webpay_plus_create(request):
     response = Transaction.create(buy_order, session_id, amount, return_url) 
     print('response: {0}'.format(response))
 
-    return render(request, 'ProyectowebApp/send-pago.html', {'response': response, 'amount': amount})  
+    return render(request, 'ProyectowebApp/send-pago.html', {'response': response, 'amount': amount, 'mail':mail})  
 
 @csrf_exempt 
 def commitpay(request):
@@ -105,7 +93,7 @@ def commitpay(request):
 
     #TRANSACCIÓN REALIZADA
     if TBK_TOKEN is None and TBK_ID_SESION is None and TBK_ORDEN_COMPRA is None and token is not None:
-
+        
         #APROBAR TRANSACCIÓN
         response = Transaction.commit(token=token)
         print("response: {}".format(response)) 
@@ -115,7 +103,14 @@ def commitpay(request):
         response_code = response.response_code
         print("response_code: {0}".format(response_code)) 
         #TRANSACCIÓN APROBADA
+
+        
+
         if status == 'AUTHORIZED' and response_code == 0:
+            
+            mail = str(response.mail)
+            send_email(mail)
+
 
             state = ''
             if response.status == 'AUTHORIZED':
@@ -134,6 +129,8 @@ def commitpay(request):
                                     'amount': amount,
                                     'authorization_code': response.authorization_code,
                                     'buy_order': response.buy_order, }
+            
+                
             return render(request, 'ProyectowebApp/commit-pay.html', {'transaction_detail': transaction_detail})
         else:
         #TRANSACCIÓN RECHAZADA            
