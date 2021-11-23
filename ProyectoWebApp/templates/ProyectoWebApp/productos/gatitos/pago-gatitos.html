@@ -49,17 +49,11 @@
                     <td>{{transaction_detail.buy_order}}</td>      
                 </tr>                                         
             </tbody>
-        </table>    
-        <form action="" method="POST">
-            {%csrf_token%}
-            <input type="text" name='mail', placeholder="a@a.cl">
-            <input style="font-size: 26px; " type="submit" value="ENVIAR">
-    
-        </form>
+        </table>   
 
         <div style="text-align:center;">
             <button>
-                <a href="../">Inicio</a>
+                <a href="correo-gatitos/">Siguiente</a>
             </button>
         </div> 
     </body>
@@ -67,5 +61,3 @@
 </html>
 
 {% endblock%}
-
-{% extends "ProyectoWebApp/compra.html"%}

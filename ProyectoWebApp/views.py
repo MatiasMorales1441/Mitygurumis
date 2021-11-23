@@ -131,7 +131,7 @@ def webpay_gatitos(request):
     Servicio.objects.all()
     buy_order = str(12312)
     session_id = str(1441)
-    amount = 1000
+    amount = 3000
 
     return_url=request.build_absolute_uri(location='commit-pay/gatitos')
     response = Transaction.create(buy_order, session_id, amount, return_url) 
@@ -185,7 +185,7 @@ def commitpay_gatitos(request):
 def send_email_gatitos(mail):
     subject = 'feliz compra en mitygurumis'
     context = {'mail':mail}
-    template = get_template('ProyectowebAppcorreo.html')
+    template = get_template('ProyectowebApp/correo.html')
     content = template.render(context)
     email = EmailMultiAlternatives(subject, #Titulo
                                     'Compra de gatitos Gurumi!',
@@ -195,7 +195,7 @@ def send_email_gatitos(mail):
     email.attach_file('ProyectoWebApp/static/ProyectoWebApp/archivos/gatitos-gurumi.pdf')
     email.send()
 
-def index(request):
+def correo_gatitos(request):
     if request.method == 'POST':
         mail = request.POST.get('mail')
         send_email_gatitos(mail)
