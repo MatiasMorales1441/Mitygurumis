@@ -1,0 +1,21 @@
+{% extends "ProyectoWebApp/base.html"%}+
+
+{% load static%}
+
+{% block content%}
+
+<html>
+    <head>
+        <title>ENVIO DE CORREO</title>
+    </head>
+    <body>
+        <h2>enviar correo</h2>
+        <form action="#" method="POST">
+            {%csrf_token%}
+            <input type="text" name='mail', placeholder="a@a.cl">
+            <input style="font-size: 26px; " type="submit" value="ENVIAR">
+        </form>
+    </body>
+</html>
+
+{% endblock%}

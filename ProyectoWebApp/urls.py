@@ -12,13 +12,20 @@ urlpatterns = [
     path('blog/', views.blog, name="blog"),
     path('contacto/', views.contacto, name="contacto"),
 
-    path('catalogo/compra',views.index,name="compra"),
 
+    ###         PAGINAS DE LOS PRODUCTOS        ###  
+
+        ##      ----    CERDTIO     ----    ##
     path('catalogo/cerdito/', views.cerdito_producto),
-
-    path('webpay-plus-create',views.webpay_plus_create),
-    path('commit-pay/',views.commitpay),
+    path('webpay-cerdito',views.webpay_cerdito),
+    path('commit-pay/cerdito',views.commitpay_cerdito),
+    path('commit-pay/correo-cerdito/',views.correo_cerdito),
     
+            ##      ----    GATITO  ----    ##
+    path('catalogo/gatitos/', views.gatitos_producto),
+    path('webpay-gatitos',views.webpay_gatitos),
+    path('commit-pay/gatitos',views.commitpay_gatitos),
+    path('commit-pay/correo-cerdito/',views.index,name="compra"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,64 @@
+{% extends "ProyectoWebApp/base.html"%}
+
+{% load static%}
+
+{% block content%}
+
+<h2 class="catalogo-servicio-titulo">PRODUCTO 1</h2>  
+<div>
+    <div class="catalogo-producto"> 
+        <div class="catalogo-producto-imagen">
+            <section>
+                
+                <p> <img src="../../static/ProyectoWebApp/img/productos/cerdito-gurumi.jpeg" alt="" class="catalogo-servicio-imagen"></p>
+            </section> 
+        </div>
+
+        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">NOMBRE </div>
+                <p  class="catalogo-servicio-info">Cerdito</p>
+            </div>
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">CARACTERISTICAS </div>
+                <p class="catalogo-servicio-info">
+                    El amigurumi mide 9 cm aproximadamente. <br>
+                    Consta de 5 paginas que consta con sus abreviaciones.
+                </p>
+            </div>
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">MATERIALES </div>
+                    <li class="catalogo-servicio-info">Ovillo algodón rosado y café arena</li>
+                    <li class="catalogo-servicio-info">Crochet numero 2.5</li>
+                    <li class="catalogo-servicio-info">Relleno de algodón</li>
+                    <li class="catalogo-servicio-info">Aguja de lana</li>
+                    <li class="catalogo-servicio-info">Ojos de seguridad numero 6</li>
+            </div>
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">Precio:</div>
+                <p class="catalogo-servicio-info">$1.000</p>
+            </div>
+        
+            <div class="catalogo-producto">
+                <div class="catalogo-producto-imagen">
+                    <form name="back" action="../" >
+                        <input class="catalogo-servicio-boton-webpay" type="submit" value="Volver">
+                    </form>
+                </div>
+                <div class="catalogo-producto-informacion">
+                    <form name="pay" action="/webpay-cerdito" method="POST">
+                        {% csrf_token %}
+                        <input class="catalogo-servicio-boton-webpay" type="submit" value="Pagar">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+{% endblock%}

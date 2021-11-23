@@ -25,7 +25,7 @@
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info">Este cerdito lo hice con mucho cariño y esfuerzo, me llevo un día crear este patrón y mide aproximadamente 9 centímetros.</p>
+                <p class="catalogo-servicio-info">Este cerdito gurumi especial para los amantes de los animales, ya que con sus orejitas caídas y su cuerpo color rosadito no puede faltar en tu repisa.</p>
             </div>
 
             <div class="container-servicio">
@@ -44,7 +44,42 @@
         <div class="catalogo-producto-imagen">
             <section>
                 
-                <p> <img src="{{servicio.imagen.url}}" alt="" class="catalogo-servicio-imagen"></p>
+                <p> <img src="../static/ProyectoWebApp/img/productos/gatitos-gurumi.jpeg" alt="" class="catalogo-servicio-imagen"></p>
+            </section> 
+        </div>
+
+        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">NOMBRE </div>
+                <p  class="catalogo-servicio-info"> Gatitos </p>
+            </div>
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">PROSEDENCIA</div>
+                <p class="catalogo-servicio-info"> Animal</p>
+            </div>
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">DESCRIPCION </div>
+                <p class="catalogo-servicio-info"> Este Gatito para amante de los michis, con su colita y su adorable cuerpo y que pueden ser de diferentes colores para diferentes gatos </p>
+            </div>
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">Precio:</div>
+                <p class="catalogo-servicio-info">$3.000</p>
+            </div>
+            
+            <a href="gatitos" class="catalogo-servicio-boton-webpay">COMPRAR</a>
+        </div>
+
+    </div>
+
+    <h2 class="catalogo-servicio-titulo">{{servicio.titulo}} </h2>  
+    <div class="catalogo-producto"> 
+        <div class="catalogo-producto-imagen">
+            <section>
+                
+                <p> <img src="../static/ProyectoWebApp/img/productos/huron-gurumi.jpeg" alt="" class="catalogo-servicio-imagen"></p>
             </section> 
         </div>
 
@@ -81,44 +116,7 @@
         <div class="catalogo-producto-imagen">
             <section>
                 
-                <p> <img src="{{servicio.imagen.url}}" alt="" class="catalogo-servicio-imagen"></p>
-            </section> 
-        </div>
-
-        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">NOMBRE </div>
-                <p  class="catalogo-servicio-info"> {{ servicio.nombre}} </p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">ANIME O PELICULA </div>
-                <p class="catalogo-servicio-info"> {{ servicio.procedencia}} </p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info"> {{ servicio.contenido}} </p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">Precio:</div>
-                <p class="catalogo-servicio-info">{{servicio.precio}} </p>
-            </div>
-            
-            <input name="precio" hidden value="{{servicio.precio}}" />
-            <form name="pay" action="/webpay-plus-create" method="POST">{% csrf_token %}
-            <button class="catalogo-servicio-boton-webpay">COMPRAR</button>
-        </div>
-
-    </div>
-
-    <h2 class="catalogo-servicio-titulo">{{servicio.titulo}} </h2>  
-    <div class="catalogo-producto"> 
-        <div class="catalogo-producto-imagen">
-            <section>
-                
-                <p> <img src="{{servicio.imagen.url}}" alt="" class="catalogo-servicio-imagen"></p>
+                <p> <img src="../static/ProyectoWebApp/img/productos/sidney-gurumi.jpeg" alt="" class="catalogo-servicio-imagen"></p>
             </section> 
         </div>
 
