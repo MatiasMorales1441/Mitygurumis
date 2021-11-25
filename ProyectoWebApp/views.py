@@ -206,10 +206,159 @@ def correo_gatitos(request):
 def huron_producto(request):
     return render(request, "ProyectowebApp/productos/huron/huron.html")
 
+def webpay_huron(request):
+    Servicio.objects.all()
+    buy_order = str(12312)
+    session_id = str(1441)
+    amount = 4000
+
+    return_url=request.build_absolute_uri(location='commit-pay/huron')
+    response = Transaction.create(buy_order, session_id, amount, return_url) 
+
+    return render(request, 'ProyectowebApp/productos/huron/send-pago.html', {'response': response, 'amount': amount})  
+
+@csrf_exempt 
+def commitpay_huron(request):
+    token = request.POST.get('token_ws')
+    TBK_TOKEN = request.POST.get('TBK_TOKEN')
+    TBK_ID_SESION = request.POST.get('TBK_ID_SESION')
+    TBK_ORDEN_COMPRA = request.POST.get('TBK_ORDEN_COMPRA')
+
+    #TRANSACCIÓN REALIZADA
+    if TBK_TOKEN is None and TBK_ID_SESION is None and TBK_ORDEN_COMPRA is None and token is not None:
+        
+        #APROBAR TRANSACCIÓN
+        response = Transaction.commit(token=token)
+        status = response.status
+        response_code = response.response_code
+        #TRANSACCIÓN APROBADA
+
+        if status == 'AUTHORIZED' and response_code == 0:
+
+            state = ''
+            if response.status == 'AUTHORIZED':
+                state = 'Aceptado'
+            pay_type = ''
+            if response.payment_type_code == 'VD':
+                pay_type = 'Tarjeta de Débito'
+            amount = int(response.amount)
+            amount = f'{amount:,.0f}'.replace(',', '.')
+            transaction_date = dt.datetime.strptime(response.transaction_date, '%Y-%m-%dT%H:%M:%S.%fZ')
+            transaction_date = '{:%d-%m-%Y %H:%M:%S}'.format(transaction_date)
+            transaction_detail = {  'card_number': response.card_detail.card_number,
+                                    'transaction_date': transaction_date,
+                                    'state': state,
+                                    'pay_type': pay_type,
+                                    'amount': amount,
+                                    'authorization_code': response.authorization_code,
+                                    'buy_order': response.buy_order, }
+            return render(request, 'ProyectowebApp/productos/huron/pago-huron.html', {'transaction_detail': transaction_detail})
+        else:
+        #TRANSACCIÓN RECHAZADA            
+            return HttpResponse('ERROR EN LA TRANSACCIÓN, SE RECHAZA LA TRANSACCIÓN.')
+    else:
+    #TRANSACCIÓN CANCELADA            
+        return HttpResponse('ERROR EN LA TRANSACCIÓN, SE CANCELO EL PAGO.')
+
+
+def send_email_huron(mail):
+    subject = 'feliz compra en mitygurumis'
+    context = {'mail':mail}
+    template = get_template('ProyectowebApp/correo.html')
+    content = template.render(context)
+    email = EmailMultiAlternatives(subject, #Titulo
+                                    'Compra de huron Gurumi!',
+                                    settings.EMAIL_HOST_USER, #Remitente
+                                    [mail]) #Destinatario
+    email.attach_alternative(content, 'text/html')
+    email.attach_file('ProyectoWebApp/static/ProyectoWebApp/archivos/huron-gurumi.pdf')
+    email.send()
+
+def correo_huron(request):
+    if request.method == 'POST':
+        mail = request.POST.get('mail')
+        send_email_huron(mail)
+
+    return render(request,"ProyectowebApp/productos/huron/envio-correo.html",{})
+
     ##      ----    SIDNEY      ----    ##
 
 def sidney_producto(request):
     return render(request, "ProyectowebApp/productos/sidney/sidney.html")
 
+def webpay_sidney(request):
+    Servicio.objects.all()
+    buy_order = str(12312)
+    session_id = str(1441)
+    amount = 5000
+
+    return_url=request.build_absolute_uri(location='commit-pay/sidney')
+    response = Transaction.create(buy_order, session_id, amount, return_url) 
+
+    return render(request, 'ProyectowebApp/productos/sidney/send-pago.html', {'response': response, 'amount': amount})  
+
+@csrf_exempt 
+def commitpay_sidney(request):
+    token = request.POST.get('token_ws')
+    TBK_TOKEN = request.POST.get('TBK_TOKEN')
+    TBK_ID_SESION = request.POST.get('TBK_ID_SESION')
+    TBK_ORDEN_COMPRA = request.POST.get('TBK_ORDEN_COMPRA')
+
+    #TRANSACCIÓN REALIZADA
+    if TBK_TOKEN is None and TBK_ID_SESION is None and TBK_ORDEN_COMPRA is None and token is not None:
+        
+        #APROBAR TRANSACCIÓN
+        response = Transaction.commit(token=token)
+        status = response.status
+        response_code = response.response_code
+        #TRANSACCIÓN APROBADA
+
+        if status == 'AUTHORIZED' and response_code == 0:
+
+            state = ''
+            if response.status == 'AUTHORIZED':
+                state = 'Aceptado'
+            pay_type = ''
+            if response.payment_type_code == 'VD':
+                pay_type = 'Tarjeta de Débito'
+            amount = int(response.amount)
+            amount = f'{amount:,.0f}'.replace(',', '.')
+            transaction_date = dt.datetime.strptime(response.transaction_date, '%Y-%m-%dT%H:%M:%S.%fZ')
+            transaction_date = '{:%d-%m-%Y %H:%M:%S}'.format(transaction_date)
+            transaction_detail = {  'card_number': response.card_detail.card_number,
+                                    'transaction_date': transaction_date,
+                                    'state': state,
+                                    'pay_type': pay_type,
+                                    'amount': amount,
+                                    'authorization_code': response.authorization_code,
+                                    'buy_order': response.buy_order, }
+            return render(request, 'ProyectowebApp/productos/sidney/pago-sidney.html', {'transaction_detail': transaction_detail})
+        else:
+        #TRANSACCIÓN RECHAZADA            
+            return HttpResponse('ERROR EN LA TRANSACCIÓN, SE RECHAZA LA TRANSACCIÓN.')
+    else:
+    #TRANSACCIÓN CANCELADA            
+        return HttpResponse('ERROR EN LA TRANSACCIÓN, SE CANCELO EL PAGO.')
+
+
+def send_email_sidney(mail):
+    subject = 'feliz compra en mitygurumis'
+    context = {'mail':mail}
+    template = get_template('ProyectowebApp/correo.html')
+    content = template.render(context)
+    email = EmailMultiAlternatives(subject, #Titulo
+                                    'Compra de sidney Gurumi!',
+                                    settings.EMAIL_HOST_USER, #Remitente
+                                    [mail]) #Destinatario
+    email.attach_alternative(content, 'text/html')
+    email.attach_file('ProyectoWebApp/static/ProyectoWebApp/archivos/sidney-gurumi.pdf')
+    email.send()
+
+def correo_sidney(request):
+    if request.method == 'POST':
+        mail = request.POST.get('mail')
+        send_email_sidney(mail)
+
+    return render(request,"ProyectowebApp/productos/sidney/envio-correo.html",{})
 
 

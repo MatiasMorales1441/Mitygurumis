@@ -26,6 +26,18 @@ urlpatterns = [
     path('webpay-gatitos',              views.webpay_gatitos),
     path('commit-pay/gatitos',          views.commitpay_gatitos),
     path('commit-pay/correo-gatitos/',  views.correo_gatitos),
+
+            ##      ----    HURON   ----    ##
+    path('catalogo/huron/',           views.huron_producto),
+    path('webpay-huron',              views.webpay_huron),
+    path('commit-pay/huron',          views.commitpay_huron),
+    path('commit-pay/correo-huron/',  views.correo_huron),
+
+            ##      ----    SIDNEY  ----    ##
+    path('catalogo/sidney/',           views.sidney_producto),
+    path('webpay-sidney',              views.webpay_sidney),
+    path('commit-pay/sidney',          views.commitpay_sidney),
+    path('commit-pay/correo-sidney/',  views.correo_sidney),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -25,7 +25,7 @@
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info">Este cerdito gurumi especial para los amantes de los animales, ya que con sus orejitas caídas y su cuerpo color rosadito no puede faltar en tu repisa.</p>
+                <p class="catalogo-servicio-info">Este cerdito amigurumi especial para los amantes de los animales, ya que con sus orejitas caídas y su cuerpo color rosadito no puede faltar en tu repisa.</p>
             </div>
 
             <div class="container-servicio">
@@ -33,7 +33,7 @@
                 <p class="catalogo-servicio-info">$1.000</p>
             </div>
             
-            <a href="cerdito" class="catalogo-servicio-boton-webpay">COMPRAR</a>
+            <a href="cerdito/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
 
         </div>
 
@@ -55,13 +55,13 @@
             </div>
 
             <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">PROSEDENCIA</div>
+                <div class="catalogo-servicio-nombre">PROCEDENCIA</div>
                 <p class="catalogo-servicio-info"> Animal</p>
             </div>
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info"> Este Gatito para amante de los michis, con su colita y su adorable cuerpo y que pueden ser de diferentes colores para diferentes gatos </p>
+                <p class="catalogo-servicio-info">Este Gatito para amante de los michis, con su colita y su adorable cuerpo y que pueden ser de diferentes tipos de gatos </p>
             </div>
 
             <div class="container-servicio">
@@ -69,12 +69,12 @@
                 <p class="catalogo-servicio-info">$3.000</p>
             </div>
             
-            <a href="gatitos" class="catalogo-servicio-boton-webpay">COMPRAR</a>
+            <a href="gatitos/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
         </div>
 
     </div>
 
-    <h2 class="catalogo-servicio-titulo">{{servicio.titulo}} </h2>  
+    <h2 class="catalogo-servicio-titulo">PRDUCTO 3</h2>  
     <div class="catalogo-producto"> 
         <div class="catalogo-producto-imagen">
             <section>
@@ -86,32 +86,31 @@
         <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">NOMBRE </div>
-                <p  class="catalogo-servicio-info"> {{ servicio.nombre}} </p>
+                <p  class="catalogo-servicio-info">HURON</p>
             </div>
 
             <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">ANIME O PELICULA </div>
-                <p class="catalogo-servicio-info"> {{ servicio.procedencia}} </p>
+                <div class="catalogo-servicio-nombre">PROCEDENCIA</div>
+                <p class="catalogo-servicio-info">Animal</p>
             </div>
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info"> {{ servicio.contenido}} </p>
+                <p class="catalogo-servicio-info">Lindos hurones para todo fan de estos pequeños amiguitos, y también son personalizables a su gustos!.</p>
             </div>
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">Precio:</div>
-                <p class="catalogo-servicio-info">{{servicio.precio}} </p>
+                <p class="catalogo-servicio-info">$4.000</p>
             </div>
             
-            <input name="precio" hidden value="{{servicio.precio}}" />
-            <form name="pay" action="/webpay-plus-create" method="POST">{% csrf_token %}
-            <button class="catalogo-servicio-boton-webpay">COMPRAR</button>
+            <a href="huron/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
+
         </div>
 
     </div>
 
-    <h2 class="catalogo-servicio-titulo">{{servicio.titulo}} </h2>  
+    <h2 class="catalogo-servicio-titulo">PRODUCTO 4</h2>  
     <div class="catalogo-producto"> 
         <div class="catalogo-producto-imagen">
             <section>
@@ -123,27 +122,27 @@
         <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">NOMBRE </div>
-                <p  class="catalogo-servicio-info"> {{ servicio.nombre}} </p>
+                <p  class="catalogo-servicio-info">SIDNEY</p>
             </div>
 
             <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">ANIME O PELICULA </div>
-                <p class="catalogo-servicio-info"> {{ servicio.procedencia}} </p>
+                <div class="catalogo-servicio-nombre">PROCEDENCIA</div>
+                <p class="catalogo-servicio-info">Videojuego</p>
             </div>
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info"> {{ servicio.contenido}} </p>
+                <p class="catalogo-servicio-info">Les traigo a esta koala llamada Sidney la cual es vecina del grandioso videojuego “Animal Crossing” y es uno de los primero patrones que cree.
+                    </p>
             </div>
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">Precio:</div>
-                <p class="catalogo-servicio-info">{{servicio.precio}} </p>
+                <p class="catalogo-servicio-info">$5.000</p>
             </div>
             
-            <input name="precio" hidden value="{{servicio.precio}}" />
-            <form name="pay" action="/webpay-plus-create" method="POST">{% csrf_token %}
-            <button class="catalogo-servicio-boton-webpay">COMPRAR</button>
+            <a href="sidney/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
+            
         </div>
 
     </div>
