@@ -10,34 +10,17 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('blog/', views.blog, name="blog"),
     path('contacto/', views.contacto, name="contacto"),
-
+       
 
     ###         PAGINAS DE LOS PRODUCTOS        ###  
-    path('catalogo/',                   views.servicios, name="catalogo"),
-
-        ##      ----    CERDTIO     ----    ##
-    path('catalogo/cerdito/',           views.cerdito_producto),
-    path('webpay-cerdito',              views.webpay_cerdito),
-    path('commit-pay/cerdito',          views.commitpay_cerdito),
-    path('commit-pay/correo-cerdito/',  views.correo_cerdito),
+    path('catalogo/',                               views.servicios,        name="catalogo"),
+    path('catalogo/<int:id>/',                      views.producto,         name="producto"),
+    path('catalogo/<int:id>/informacion/',          views.informacion,      name="informacion"),
+    path('catalogo/<int:id>/informacion/webpay/',   views.webpay,           name="webpay"),
+    path('catalogo/<int:id>/informacion/webpay/commit-pay/',          views.commitpay,        name="commit_pay"),
+    path('webpay/commit-pay/correo/<int:id>/',      views.correo,           name="correo"),
     
-            ##      ----    GATITO  ----    ##
-    path('catalogo/gatitos/',           views.gatitos_producto),
-    path('webpay-gatitos',              views.webpay_gatitos),
-    path('commit-pay/gatitos',          views.commitpay_gatitos),
-    path('commit-pay/correo-gatitos/',  views.correo_gatitos),
-
-            ##      ----    HURON   ----    ##
-    path('catalogo/huron/',           views.huron_producto),
-    path('webpay-huron',              views.webpay_huron),
-    path('commit-pay/huron',          views.commitpay_huron),
-    path('commit-pay/correo-huron/',  views.correo_huron),
-
-            ##      ----    SIDNEY  ----    ##
-    path('catalogo/sidney/',           views.sidney_producto),
-    path('webpay-sidney',              views.webpay_sidney),
-    path('commit-pay/sidney',          views.commitpay_sidney),
-    path('commit-pay/correo-sidney/',  views.correo_sidney),
+    path('correo/<int:id>/', views.correo)
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

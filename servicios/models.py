@@ -9,6 +9,8 @@ class Servicio(models.Model):
     imagen = models.ImageField(upload_to = 'servicios')
     procedencia = models.CharField( max_length=60)
     precio = models.IntegerField()
+    caracteristicas = models.TextField(max_length=1000, verbose_name= 'caracteristicas')
+    materiales = models.TextField(max_length=1000, verbose_name='materiales')
 
     file = models.FileField(upload_to= 'servicios/files')
     created = models.DateTimeField(auto_now_add=True)

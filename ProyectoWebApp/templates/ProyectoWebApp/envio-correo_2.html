@@ -1,0 +1,15 @@
+{% extends "ProyectoWebApp/base.html"%}
+
+{% load static%}
+
+{% block content%}
+    
+    
+    <h2>enviar correo</h2>
+    <form name="pay" action="webpay/" method="POST">
+        {%csrf_token%}
+        <input type="text" name='mail', placeholder="a@a.cl">
+        <input class="catalogo-servicio-boton-webpay" type="submit" value="Pagar">
+    </form>
+
+{% endblock%}

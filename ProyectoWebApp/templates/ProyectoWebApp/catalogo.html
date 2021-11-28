@@ -3,147 +3,37 @@
 {% load static%}
 
 {% block content%}
-    <h2 class="catalogo-servicio-titulo">PRODUCTO 1</h2>  
+    {% for servicio in servicios %}
+    
+    <h2 class="catalogo-servicio-titulo">{{servicio.nombre}}</h2>  
     <div class="catalogo-producto"> 
         <div class="catalogo-producto-imagen">
             <section>
                 
-                <p> <img src="../static/ProyectoWebApp/img/productos/cerdito-gurumi.jpeg" alt="" class="catalogo-servicio-imagen"></p>
+                <p> <img src="{{servicio.imagen.url}}" alt="" class="catalogo-servicio-imagen"></p>
             </section> 
         </div>
 
         <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">NOMBRE </div>
-                <p  class="catalogo-servicio-info">Cerdito</p>
-            </div>
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">PROCEDENCIA </div>
-                <p class="catalogo-servicio-info">Animal</p>
+                <p class="catalogo-servicio-info">{{servicio.procedencia}}</p>
             </div>
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info">Este cerdito amigurumi especial para los amantes de los animales, ya que con sus orejitas caídas y su cuerpo color rosadito no puede faltar en tu repisa.</p>
+                <p class="catalogo-servicio-info">{{servicio.contenido}}</p>
             </div>
 
             <div class="container-servicio">
                 <div class="catalogo-servicio-nombre">Precio:</div>
-                <p class="catalogo-servicio-info">$1.000</p>
+                <p class="catalogo-servicio-info">${{servicio.precio}}</p>
             </div>
             
-            <a href="cerdito/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
-
+            <a href="{{servicio.id}}/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
         </div>
-
-    </div>
-    
-    <h2 class="catalogo-servicio-titulo">PRODUCTO 2</h2>  
-    <div class="catalogo-producto"> 
-        <div class="catalogo-producto-imagen">
-            <section>
-                
-                <p> <img src="../static/ProyectoWebApp/img/productos/gatitos-gurumi.jpeg" alt="" class="catalogo-servicio-imagen"></p>
-            </section> 
-        </div>
-
-        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">NOMBRE </div>
-                <p  class="catalogo-servicio-info"> Gatitos </p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">PROCEDENCIA</div>
-                <p class="catalogo-servicio-info"> Animal</p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info">Este Gatito para amante de los michis, con su colita y su adorable cuerpo y que pueden ser de diferentes tipos de gatos </p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">Precio:</div>
-                <p class="catalogo-servicio-info">$3.000</p>
-            </div>
-            
-            <a href="gatitos/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
-        </div>
-
     </div>
 
-    <h2 class="catalogo-servicio-titulo">PRDUCTO 3</h2>  
-    <div class="catalogo-producto"> 
-        <div class="catalogo-producto-imagen">
-            <section>
-                
-                <p> <img src="../static/ProyectoWebApp/img/productos/huron-gurumi.jpeg" alt="" class="catalogo-servicio-imagen"></p>
-            </section> 
-        </div>
-
-        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">NOMBRE </div>
-                <p  class="catalogo-servicio-info">HURON</p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">PROCEDENCIA</div>
-                <p class="catalogo-servicio-info">Animal</p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info">Lindos hurones para todo fan de estos pequeños amiguitos, y también son personalizables a su gustos!.</p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">Precio:</div>
-                <p class="catalogo-servicio-info">$4.000</p>
-            </div>
-            
-            <a href="huron/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
-
-        </div>
-
-    </div>
-
-    <h2 class="catalogo-servicio-titulo">PRODUCTO 4</h2>  
-    <div class="catalogo-producto"> 
-        <div class="catalogo-producto-imagen">
-            <section>
-                
-                <p> <img src="../static/ProyectoWebApp/img/productos/sidney-gurumi.jpeg" alt="" class="catalogo-servicio-imagen"></p>
-            </section> 
-        </div>
-
-        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">NOMBRE </div>
-                <p  class="catalogo-servicio-info">SIDNEY</p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">PROCEDENCIA</div>
-                <p class="catalogo-servicio-info">Videojuego</p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">DESCRIPCION </div>
-                <p class="catalogo-servicio-info">Les traigo a esta koala llamada Sidney la cual es vecina del grandioso videojuego “Animal Crossing” y es uno de los primero patrones que cree.
-                    </p>
-            </div>
-
-            <div class="container-servicio">
-                <div class="catalogo-servicio-nombre">Precio:</div>
-                <p class="catalogo-servicio-info">$5.000</p>
-            </div>
-            
-            <a href="sidney/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
-            
-        </div>
-
-    </div>
+    {% endfor %}
 {% endblock%}
