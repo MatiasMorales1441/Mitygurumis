@@ -10,8 +10,8 @@
     </head>
 
     <body>
-        <table style="max-width:650px;margin: auto;">
-            <caption>Detalle de Pago: <strong>SUCCESS PAY</strong></caption>
+        <table style="max-width: 625px;margin: 25px auto;">
+            <caption class="commit-nombre">Detalle de Pago: <strong class="commit-info">SUCCESS PAY</strong></caption>
             <thead>
                 <tr hidden >
                     <th scope="col"></th>
@@ -21,41 +21,43 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Estado:</strong></td>
-                    <td>{{transaction_detail.state}}</td>      
+                    <td class="commit-nombre">Estado:</td>
+                    <td class="commit-info">{{transaction_detail.state}}</td>      
                 </tr>
                 <tr>
-                    <td><strong>Fecha:</strong></td>
-                    <td>{{transaction_detail.transaction_date}}</td>      
+                    <td class="commit-nombre">Fecha:</td>
+                    <td class="commit-info">{{transaction_detail.transaction_date}}</td>      
                 </tr>
                 <tr>
-                    <td><strong>N° de tarjeta:</strong></td>
-                    <td>XXXX XXXX XXXX {{transaction_detail.card_number}}</td>      
+                    <td class="commit-nombre">N° de tarjeta:</td>
+                    <td class="commit-info">XXXX XXXX XXXX {{transaction_detail.card_number}}</td>      
                 </tr>
                 <tr>
-                    <td><strong>Tipo de Pago:</strong></td>
-                    <td>{{transaction_detail.pay_type}}</td>      
+                    <td class="commit-nombre">Tipo de Pago:</td>
+                    <td class="commit-info">{{transaction_detail.pay_type}}</td>      
                 </tr>
                 <tr>
-                    <td><strong>Monto Pagado:</strong></td>
-                    <td>{{transaction_detail.amount}}</td>      
+                    <td class="commit-nombre">Monto Pagado:</td>
+                    <td class="commit-info">{{transaction_detail.amount}}</td>      
                 </tr>
                 <tr>
-                    <td><strong>Comprobante:</strong></td>
-                    <td>{{transaction_detail.authorization_code}}</td>      
+                    <td class="commit-nombre">Comprobante:</td>
+                    <td class="commit-info">{{transaction_detail.authorization_code}}</td>      
                 </tr>
                 <tr>
-                    <td><strong>N° Orden:</strong></td>
-                    <td>{{transaction_detail.buy_order}}</td>      
+                    <td class="commit-nombre">N° Orden:</td>
+                    <td class="commit-info">{{transaction_detail.buy_order}}</td>      
                 </tr>                                         
             </tbody>
         </table>   
 
         <div style="text-align:center;">
-            <a href="{{servicio.file.url}}" download="{{servicio.file.url}} name="archivo">Descargar</a>
-            <button>
-                <a href="http://localhost:8000/">INICIO</a>
-            </button>
+            <div>
+                <a href="http://localhost:8000/" class="commit-boton">INICIO</a>
+            </div>
+            <div style="text-align:center; padding: 20;">
+                <a href="{{servicio.file.url}}" download="{{servicio.file.url}} name="archivo" class="commit-boton">Descargar PDF</a>
+            </div>
         </div> 
     </body>
 

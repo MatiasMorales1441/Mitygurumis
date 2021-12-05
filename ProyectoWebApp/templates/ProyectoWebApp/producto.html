@@ -5,7 +5,7 @@
 {% block content%}
     
     
-    <h2 class="catalogo-servicio-titulo">{{servicio.nombre}}</h2>  
+    <h2 class="catalogo-servicio-titulo" id="{{servicio.nombre}}">{{servicio.nombre}}</h2>  
     <div class="catalogo-producto"> 
         <div class="catalogo-producto-imagen">
             <section>
@@ -33,14 +33,14 @@
             
             <div class="catalogo-producto">
                 <div class="catalogo-producto-imagen">
-                    <form name="back" action="../" >
-                        <input class="catalogo-servicio-boton-webpay" type="submit" value="Volver">
+                    <form name="back" action="../#{{servicio.nombre}}" >
+                        <input class="catalogo-servicio-boton-webpay" type="submit" value="VOLVER">
                     </form>
                 </div>
                 <div class="catalogo-producto-informacion">
                     <form name="pay" action="informacion/" method="POST">
                         {% csrf_token %}
-                        <input class="catalogo-servicio-boton-webpay" type="submit" value="siguiente">
+                        <input class="catalogo-servicio-boton-webpay" type="submit" value="COMPRAR">
                     </form>
                 </div>
             </div>

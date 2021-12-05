@@ -3,13 +3,54 @@
 {% load static%}
 
 {% block content%}
-    
-    
-    <h2>enviar correo</h2>
-    <form name="pay" action="webpay/" method="POST">
-        {%csrf_token%}
-        <input type="text" name='mail', placeholder="a@a.cl">
-        <input class="catalogo-servicio-boton-webpay" type="submit" value="Pagar">
-    </form>
+    <html>
+        <head>
+            <title>Resumen de Compra</title>
+        </head>
+        <body>
+            <div class="informacion-compra">
+                <div class="informacion-compra-datos">
+                    
+                    <h2 class="catalogo-servicio-titulo">Datos</h2> 
+
+                    <h2 >Ingrese su Correo</h2>
+                    <form name="pay" action="webpay/" method="POST">
+                        {%csrf_token%}
+                        <input type="text" name="mail" placeholder="a@a.cl">
+                        <input class="catalogo-servicio-boton-webpay" type="submit" value="Pagar">
+                    </form>
+                    
+                    <p class="catalogo-servicio-info informacion-compra-texto">
+                        Ingrese el correo para enviarle el archivo del producto el cual será enviado por este medio, de igual manera se puede descargar a través de la pagina al realizar la compra correctamente.
+                    </p>
+                </div>
+                <div class="informacion-compra-resumen">
+                    <h2 class="catalogo-servicio-titulo">Resumen del producto</h2> 
+                    
+                    <div class="container-servicio">
+                        <div class="catalogo-servicio-nombre">NOMBRE </div>
+                        <p class="catalogo-servicio-info">{{servicio.nombre}}</p>
+                    </div>
+        
+                    <div class="container-servicio">
+                        <div class="catalogo-servicio-nombre">PRECIO</div>
+                        <p class="catalogo-servicio-info">${{servicio.precio}}</p>
+                    </div>
+
+                    <div class="container-servicio">
+                        <div class="catalogo-servicio-nombre">DESCRIPCION </div>
+                        <p class="catalogo-servicio-info">{{servicio.contenido}}</p>
+                    </div>
+                    
+                    <div class="container-servicio">
+                        <div class="catalogo-servicio-nombre">CARACTERISTICAS</div>
+                        <p class="catalogo-servicio-info">{{servicio.caracteristicas}}</p>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </body>
+    </html>
 
 {% endblock%}

@@ -5,7 +5,7 @@
 {% block content%}
     {% for servicio in servicios %}
     
-    <h2 class="catalogo-servicio-titulo">{{servicio.nombre}}</h2>  
+    <h2 class="catalogo-servicio-titulo" id="{{servicio.nombre}}">{{servicio.nombre}}</h2>  
     <div class="catalogo-producto"> 
         <div class="catalogo-producto-imagen">
             <section>
@@ -31,7 +31,7 @@
                 <p class="catalogo-servicio-info">${{servicio.precio}}</p>
             </div>
             
-            <a href="{{servicio.id}}/" class="catalogo-servicio-boton-webpay">COMPRAR</a>
+            <a href="{{servicio.id}}/#{{servicio.nombre}}" class="catalogo-servicio-boton-webpay">SABER MÁS</a>
         </div>
     </div>
 

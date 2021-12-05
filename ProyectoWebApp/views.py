@@ -16,8 +16,9 @@ from transbank.webpay.webpay_plus.transaction import Transaction
 
 
 def home(request):
-    
-    return render(request,"ProyectowebApp/home.html")
+    servicio=Servicio.objects.get(id=4)
+    blog = Blog.objects.get(id=2)
+    return render(request,"ProyectowebApp/home.html",{"servicio": servicio, "blog": blog})
 
 
 def tienda(request):
