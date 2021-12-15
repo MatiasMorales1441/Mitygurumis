@@ -12,7 +12,7 @@
      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;600;700;800&display=swap" rel="stylesheet"> 
      <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
-     
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{% static 'ProyectoWebApp/css/gestion.css'%} " rel="stylesheet">
@@ -54,10 +54,6 @@
           <li class="nav-item {% if request.path == '/tienda/'%}active {% endif%} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{%url 'blog' %}">Blog</a>
           </li>
-          <li class="nav-item {% if request.path == '/contacto/'%}active {% endif%} px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{%url 'contacto' %}">Contacto</a>
-          </li>
-         
          
         </ul>
       </div>
@@ -75,7 +71,8 @@
   
    
     <!-- Footer -->
-    <footer class="footer text-faded text-center py-5">
+    <!--
+    <footer class="footer text-faded py-5">
       <div class="container">
         <p class="m-0">
 	        <a href="#" class="link">
@@ -105,6 +102,41 @@
         <p class="m-0 mbt1" style="color: black;">&copy; MityGurumis 2021</p>
       </div>
 	</footer>
+-->
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h6><u>Acerca de MityGurumis</u></h6>
+        <p class="text-justify">Mitygurumis se creó en el año 2018 a partir de un hobby el cual quise aprovechar para compartirlo con ustedes, la cual en esta página encontraras algunos patrones que he hecho a lo largo de estos años y que además me he ido perfeccionando dando lo mejor de mí, espero que disfrutes mucho de mis patrones y espero ver tus resultados en las redes sociales!</p>
+      </div>
+
+
+      <div class="col-xs-6 col-md-3">
+        <h6><u>Enlaces</u></h6>
+        <ul class="footer-links">
+          <li><a href="http://localhost:8000/">Inicio</a></li>
+          <li><a href="http://localhost:8000/catalogo/">Catalogo</a></li>
+          <li><a href="http://localhost:8000/blog/">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <div class="centrado">
+      
+      <div class="col-md-4 col-sm-6 col-xs-12" >
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com/mitygurumis_-112378170939079" class="fa fa-facebook"></a></li>
+          <li><a href="mailto: mitygurumisventa@gmail.com" class="fa fa-google"></a></li>
+          <li><a href="https://www.instagram.com/mitygurumis_/" class="fa fa-instagram"></a></li>   
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
 
     <!-- Bootstrap -->
     <script src="{% static 'ProyectoWebApp/vendor/jquery/jquery.min.js' %}"></script>

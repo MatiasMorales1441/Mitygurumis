@@ -1,5 +1,7 @@
 import builtins
+from typing import Final, final
 from django.core import mail
+from django.db.models import query
 from django.shortcuts import render, HttpResponse
 from django.utils.functional import partition
 from servicios.models import Servicio
@@ -16,9 +18,11 @@ from transbank.webpay.webpay_plus.transaction import Transaction
 
 
 def home(request):
-    servicio=Servicio.objects.get(id=4)
-    blog = Blog.objects.get(id=2)
+    servicio=Servicio.objects.all().last()
+    blog = Blog.objects.all().first()
     return render(request,"ProyectowebApp/home.html",{"servicio": servicio, "blog": blog})
+
+
 
 
 def tienda(request):
@@ -68,7 +72,8 @@ def commitpay(request,id):
     TBK_ID_SESION = request.POST.get('TBK_ID_SESION')
     TBK_ORDEN_COMPRA = request.POST.get('TBK_ORDEN_COMPRA')
     
-    
+    nombre = servicio.nombre
+    archivo = str("../Mitygurumis/media/servicios/files/"+str(nombre)+"-gurumi.pdf")
 
     #TRANSACCIÓN REALIZADA
     if TBK_TOKEN is None and TBK_ID_SESION is None and TBK_ORDEN_COMPRA is None and token is not None:
@@ -97,6 +102,7 @@ def commitpay(request,id):
                                             settings.EMAIL_HOST_USER, #Remitente
                                             [mail]) #Destinatario
             email.attach_alternative(content, 'text/html')
+            email.attach_file(archivo)
             email.send()
 
             amount = int(response.amount)
@@ -136,7 +142,11 @@ def commitpay(request,id):
 def correo(request, id):
     servicio = Servicio.objects.get(id=id)
     mail = request.POST.get('mail')
-    archivo = ('D:/Universidad/Nivel 8/Ing Software/Mitiweb/Mitygurumis/media/servicios/files/cerdito-gurumi.pdf')
+    
+    nombre = servicio.nombre
+    archivo = str("../Mitygurumis/media/servicios/files/"+str(nombre)+"-gurumi.pdf")
+    print(nombre)
+    print(archivo)
 
     if request.method == 'POST':
         subject = 'Muchas Gracias por tu Compra!'

@@ -14,15 +14,28 @@
                     <h2 class="catalogo-servicio-titulo">Datos</h2> 
 
                     <h2 >Ingrese su Correo</h2>
-                    <form name="pay" action="webpay/" method="POST">
-                        {%csrf_token%}
-                        <input type="text" name="mail" placeholder="a@a.cl">
-                        <input class="catalogo-servicio-boton-webpay" type="submit" value="Pagar">
-                    </form>
+                    <div>
+                        <form name="pay" action="webpay/" method="POST">
+                            {%csrf_token%}
+                            <input type="text" name="mail" placeholder="a@a.cl" style="
+                            border-radius: 100px;
+                            height: 55;
+                            width: 420;
+                            text-align: center;
+                            font-size: 34;
+                            background: #ebc1c3;
+                            border: 4px solid #7c1c3f;
+                        ">
+                            <input class="commit-boton" type="submit" value="Pagar">
+                        </form>
+                    </div>
+                    
+                   <a href="../" class="commit-boton">Volver </a>
                     
                     <p class="catalogo-servicio-info informacion-compra-texto">
                         Ingrese el correo para enviarle el archivo del producto el cual será enviado por este medio, de igual manera se puede descargar a través de la pagina al realizar la compra correctamente.
                     </p>
+                    
                 </div>
                 <div class="informacion-compra-resumen">
                     <h2 class="catalogo-servicio-titulo">Resumen del producto</h2> 
