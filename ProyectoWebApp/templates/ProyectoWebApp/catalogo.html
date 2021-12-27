@@ -3,183 +3,37 @@
 {% load static%}
 
 {% block content%}
-
-    {% for servicio in servicios%}
-<div> 
-    <p>       
-        <h2 style="color: #000000; background-color: rgb(243, 171, 205);
-        margin: 1rem;
-        padding: 1rem;
-        text-align: center;
-        font-weight: 500;
-        font-size: 40;"
-        >{{servicio.titulo}} </h2>  
-</p> 
-
-<section>
-<div style = "
-    color:rgb(0, 0, 0);
-    position: relative;
-    font-size: 30;
-    left: 900px;
-    top: 330px;
-    display: inline-block;
-    "> 
-    DESCRIPCION </div>
-    <p style="color: rgb(155, 53, 53); 
-            position: relative;
-            width: 759px;
-            height: 200px;
-            left: 900px;
-            top: 330px;
-            
-            
-            font: oblique bold 120% cursive;
-            font-weight: normal;
-            font-size: 30px;
-            line-height: 35px;"> {{ servicio.contenido}} </p>
-</section>
-<div style = "
-    color:rgb(0, 0, 0);
-    position: relative;
-    font-size: 30;
-    left: 900px;
-    top: -200px;
-    margin: 0 auto;
-    display: inline-block;"> 
-    NOMBRE </div>
-<section>
-
-    <p  style="color: rgb(155, 53, 53); 
-            position: relative;
-            width: 759px;
-            height: 200px;
-            left: 900px;
-            top: -200px;
-
-            font: oblique bold 120% cursive;
-            font-weight: normal;
-            font-size: 30px;
-            line-height: 35px;"> {{ servicio.nombre}} </p>
-            
-</section>
-<section>
-    <p style="color: rgb(155, 53, 53); 
-            position: relative;
-            width: 759px;
-            height: 200px;
-            left: 900px;
-            top: 154px;
-
-
-            font: oblique bold 120% cursive;
-            font-weight: normal;
-            font-size: 30px;
-            line-height: 35px;"></p>
-
-            <form name="pay" action="/webpay-plus-create" method="POST" 
-            style = " position: relative;
-            top: -100px;
-            left: 900px;
-            font-size: 20px;
-            
-            
-            ">{% csrf_token %}
-        
-                <td></td>
-                <td><strong style="
+    {% for servicio in servicios %}
+    
+    <h2 class="catalogo-servicio-titulo" id="{{servicio.nombre}}">{{servicio.nombre}}</h2>  
+    <div class="catalogo-producto"> 
+        <div class="catalogo-producto-imagen">
+            <section>
                 
-                font-weight: normal;
-                font-size: 30px;
-                color: rgb(0, 0, 0);
-                position: relative;
-                top: -100px;
-                left: 900px;
-                ">Precio:</strong></td>
-                <td><strong style="
-                    position:relative;
-                    top: -50px;
-                    left: 800px;
-                    color: rgb(155, 53, 53);
-                    font: oblique bold 120% cursive;
-                    font-weight: normal;
-                    font-size: 30px;
-        
-                ">{{servicio.precio}}</strong><input name="precio" hidden value="{{servicio.precio}}" /></td>
-                <td><button style="
-                
-                background-color: #EA4C89;
-                border-radius: 8px;
-                border-style: none;
-                box-sizing: border-box;
-                color: #FFFFFF;
-                cursor: pointer;
-                display: inline-block;
-                font-family: Helvetica, Arial, sans-serif;
-                font-size: 14px;
-                font-weight: 500;
-                height: 40px;
-                line-height: 20px;
-                list-style: none;
-                margin: 0;
-                outline: none;
-                padding: 10px 16px;
-                position: relative;
-                text-align: center;
-                text-decoration: none;
-                transition: color 100ms;
-                vertical-align: baseline;
-                user-select: none;
-                -webkit-user-select: none;
-                touch-action: manipulation;
-                
-                left: 750px;
+                <p> <img src="{{servicio.imagen.url}}" alt="" class="catalogo-servicio-imagen"></p>
+            </section> 
+        </div>
 
-                ">COMPRAR</button></td> 
+        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
 
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">PROCEDENCIA </div>
+                <p class="catalogo-servicio-info">{{servicio.procedencia}}</p>
+            </div>
 
-</section>
-<div style = "
-    color:rgb(0, 0, 0);
-    position: relative;
-    font-size: 30;
-    left: 900px;
-    top: -580px;
-    margin: 0 auto;
-    display: inline-block;"> 
-    ANIME O PELICULA </div>
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">DESCRIPCION </div>
+                <p class="catalogo-servicio-info">{{servicio.contenido}}</p>
+            </div>
 
-<section>
-
-    <p style="color: rgb(155, 53, 53); 
-            position: relative;
-            width: 759px;
-            height: 200px;
-            left: 900px;
-            top: -580px;
-
-            font: oblique bold 120% cursive;
-            font-weight: normal;
-            font-size: 30px;
-            line-height: 35px;"> {{ servicio.procedencia}} </p>
-</section>
-
-
-
-<section>
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">Precio:</div>
+                <p class="catalogo-servicio-info">${{servicio.precio}} CLP</p>
+            </div>
             
-    <p> <img src="{{servicio.imagen.url}}" alt="" style="   
+            <a href="{{servicio.id}}/#{{servicio.nombre}}" class="catalogo-servicio-boton-webpay">SABER MÁS</a>
+        </div>
+    </div>
 
-        position: relative;
- 
-            height: 694px;
-            left: 200px;
-            top: -1000px;
-            border: 10px solid rgb(0, 0, 0);
-            margin: auto;
-            padding: 0px 0px;">
-            </p>
-</section>
-</div>
     {% endfor %}
 {% endblock%}

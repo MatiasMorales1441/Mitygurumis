@@ -1,0 +1,8 @@
+def Entalpia1():
+ cv1.delete(0,END)
+ value1 = float(Pe.get()) 
+ value2 = float(Eq.get()) 
+ estado_1 = IAPW597(P=value1,x=value2)
+ V1 = estado_1.v 
+ v1 = round(IAPW597(P=value1,x=value2),3)
+ cv1.insert(0,v1)

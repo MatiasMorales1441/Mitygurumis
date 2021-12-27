@@ -1,0 +1,66 @@
+{% extends "ProyectoWebApp/base.html"%}+
+
+{% load static%}
+
+{% block content%}
+
+<html>
+    <head>
+        <title>Gracias Por Comprara!!</title>
+    </head>
+
+    <body>
+        <table style="max-width: 625px;margin: 25px auto;">
+            <caption class="commit-nombre">Detalle de Pago: <strong class="commit-info">SUCCESS PAY</strong></caption>
+            <thead>
+                <tr hidden >
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="commit-nombre">Estado:</td>
+                    <td class="commit-info">{{transaction_detail.state}}</td>      
+                </tr>
+                <tr>
+                    <td class="commit-nombre">Fecha:</td>
+                    <td class="commit-info">{{transaction_detail.transaction_date}}</td>      
+                </tr>
+                <tr>
+                    <td class="commit-nombre">N° de tarjeta:</td>
+                    <td class="commit-info">XXXX XXXX XXXX {{transaction_detail.card_number}}</td>      
+                </tr>
+                <tr>
+                    <td class="commit-nombre">Tipo de Pago:</td>
+                    <td class="commit-info">{{transaction_detail.pay_type}}</td>      
+                </tr>
+                <tr>
+                    <td class="commit-nombre">Monto Pagado:</td>
+                    <td class="commit-info">{{transaction_detail.amount}}</td>      
+                </tr>
+                <tr>
+                    <td class="commit-nombre">Comprobante:</td>
+                    <td class="commit-info">{{transaction_detail.authorization_code}}</td>      
+                </tr>
+                <tr>
+                    <td class="commit-nombre">N° Orden:</td>
+                    <td class="commit-info">{{transaction_detail.buy_order}}</td>      
+                </tr>                                         
+            </tbody>
+        </table>   
+
+        <div style="text-align:center;">
+            <div>
+                <a href="http://localhost:8000/" class="commit-boton">INICIO</a>
+            </div>
+            <div style="text-align:center; padding: 20;">
+                <a href="{{servicio.pdf.url}}" download="{{servicio.pdf.url}}" name="archivo" class="commit-boton">Descargar PDF</a>
+            </div>
+        </div> 
+    </body>
+
+</html>
+
+{% endblock%}

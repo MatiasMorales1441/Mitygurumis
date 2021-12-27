@@ -1,0 +1,52 @@
+{% extends "ProyectoWebApp/base.html"%}
+
+{% load static%}
+
+{% block content%}
+    
+    
+    <h2 class="catalogo-servicio-titulo" id="{{servicio.nombre}}">{{servicio.nombre}}</h2>  
+    <div class="catalogo-producto"> 
+        
+
+        <div class="catalogo-producto-informacion container-catalogo-producto-informacion">
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">CARACTERISTICAS</div>
+                <p class="catalogo-servicio-info">{{servicio.caracteristicas}}</p>
+            </div>
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">MATERIALES</div>
+                <p class="catalogo-servicio-info">{{servicio.materiales}}</p>
+            </div>
+
+            <div class="container-servicio">
+                <div class="catalogo-servicio-nombre">Precio:</div>
+                <p class="catalogo-servicio-info">${{servicio.precio}}</p>
+            </div>
+            
+            <div class="catalogo-producto">
+                <div class="catalogo-producto-imagen">
+                    <form name="back" action="../#{{servicio.nombre}}" >
+                        <input class="catalogo-servicio-boton-webpay" type="submit" value="VOLVER">
+                    </form>
+                </div>
+                <div class="catalogo-producto-informacion">
+                    <form name="pay" action="informacion/" method="POST">
+                        {% csrf_token %}
+                        <input class="catalogo-servicio-boton-webpay" type="submit" value="COMPRAR">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalogo-producto-imagen">
+            <section>
+                
+                <p> <img src="{{servicio.imagen.url}}" alt="" class="catalogo-servicio-imagen"></p>
+            </section> 
+        </div>
+    </div>
+
+{% endblock%}
